@@ -4,7 +4,7 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
  * @customElement
  * @polymer
  */
-class CatalogView extends PolymerElement {
+class DetailView extends PolymerElement {
   static get template() {
     return html`
       [[name]]
@@ -28,4 +28,4 @@ class CatalogView extends PolymerElement {
   }
 }
 
-window.customElements.define('catalog-view', CatalogView);
+window.customElements.define('detail-view', DetailView);

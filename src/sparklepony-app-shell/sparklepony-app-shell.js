@@ -1,9 +1,14 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import '@polymer/app-layout/app-layout.js';
 import '@polymer/app-route/app-location.js';
 import '@polymer/app-route/app-route.js';
+import '@polymer/iron-icons/iron-icons.js';
 import '@polymer/iron-pages/iron-pages.js';
+import '@polymer/paper-icon-button/paper-icon-button.js';
+import '@polymer/paper-tabs/paper-tabs.js';
 
 import '../catalog-view/catalog-view.js';
+import '../detail-view/detail-view.js';
 
 /**
  * @customElement
@@ -17,30 +22,61 @@ class SparkleponyAppShell extends PolymerElement {
           display: block;
         }
       </style>
-      <h2>Hello [[prop1]]!</h2>
 
       <app-location route="{{route}}"></app-location>
-      <app-route
-                    route="{{route}}"
-                    pattern="/:page"
-                    data="{{routeData}}"
-                    tail="{{subroute}}">
+      <app-route route="{{route}}"
+                 pattern="/:page"
+                 data="{{routeData}}"
+                 tail="{{subRoute}}">
       </app-route>
 
-      <iron-pages selected="[[routeData.page]]" attr-for-selected="name" fallback-selection="tops">
-        <catalog-view name="tops" route="[[subroute]]">a</catalog-view>
-        <catalog-view name="bottoms" route="[[subroute]]">b</catalog-view>
-        <catalog-view name="accesories" route="[[subroute]]">c</catalog-view>
-      </iron-pages>
+      <app-header-layout>
+        <app-header reveals>
+          <app-toolbar>
+            <div class="navItem leftItem">
+              <paper-icon-button icon="menu" drawer-toggle alt="Toggle navigation menu"></paper-icon-button>
+            </div>
+            <div class="spacer">
+              <h1>Sparkle Pony</h1>
+            </div>
+            <div class="navItem">
+              <paper-icon-button icon="shopping-cart" aria-label="Shopping cart"></paper-icon-button>
+              <paper-icon-button icon="more-vert" aria-label="More options"></paper-icon-button>
+            </div>
+          </app-toolbar>
+          <paper-tabs>
+            <dom-repeat items="{{sections}}">
+              <template>
+                <paper-tab>
+                  <a href="#[[item]]">[[item]]</a>
+                </paper-tab>
+              </template>
+            </dom-repeat>
+          </paper-tabs>
+        </app-header>
+
+
+        <iron-pages selected="[[routeData.page]]" attr-for-selected="name" fallback-selection="catalog">
+          <catalog-view name="catalog" route="[[subRoute]]">a</catalog-view>
+          <detail-view name="detail" route="[[subRoute]]">Detail View</detail-view>
+        </iron-pages>
+      </app-header-layout>
     `;
   }
+
   static get properties() {
     return {
-      prop1: {
-        type: String,
-        value: 'sparklepony-app'
+      sections: {
+        type: Array,
+        value() {
+          return [
+            'tops',
+            'bottoms',
+            'accesories'
+          ]
+        },
       }
-    };
+    }
   }
 }
 

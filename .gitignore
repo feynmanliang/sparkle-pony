@@ -1,3 +1,4 @@
 /node_modules
-yarn_errors.log
+yarn-error.log
 .tern-port
+
