@@ -1,6 +1,8 @@
 {
   "name": "sparklepony",
   "dependencies": {
+    "@polymer/app-route": "^3.0.0-pre.21",
+    "@polymer/iron-pages": "^3.0.0-pre.21",
     "@polymer/polymer": "^3.0.0"
   },
   "devDependencies": {
