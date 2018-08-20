@@ -2,6 +2,7 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@polymer/app-layout/app-layout.js';
 import '@polymer/app-route/app-location.js';
 import '@polymer/app-route/app-route.js';
+import '@polymer/iron-ajax/iron-ajax.js';
 import '@polymer/iron-icons/iron-icons.js';
 import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
@@ -57,8 +58,11 @@ class SparkleponyAppShell extends PolymerElement {
 
 
         <iron-pages selected="[[routeData.page]]" attr-for-selected="name" fallback-selection="catalog">
-          <catalog-view name="catalog" route="[[subRoute]]">a</catalog-view>
-          <detail-view name="detail" route="[[subRoute]]">Detail View</detail-view>
+          <catalog-view name="catalog"
+                        route="[[subRoute]]"
+                        items="[[items]]"
+                        featured-item="[[featuredItems.0]]"></catalog-view>
+          <detail-view name="detail" route="[[subRoute]]"></detail-view>
         </iron-pages>
       </app-header-layout>
     `;
@@ -75,6 +79,12 @@ class SparkleponyAppShell extends PolymerElement {
             'accesories'
           ]
         },
+      },
+      items: {
+        type: Array,
+      },
+      featuredItems: {
+        type: Array,
       }
     }
   }
