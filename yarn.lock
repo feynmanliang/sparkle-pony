@@ -29,6 +29,12 @@
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
+"@polymer/iron-ajax@^3.0.0-pre.21":
+  version "3.0.0-pre.21"
+  resolved "https://registry.yarnpkg.com/@polymer/iron-ajax/-/iron-ajax-3.0.0-pre.21.tgz#66c31e02f2b0403f5fa4157433a1e6daa0457a6a"
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+
 "@polymer/iron-behaviors@^3.0.0-pre.21":
   version "3.0.0-pre.21"
   resolved "https://registry.yarnpkg.com/@polymer/iron-behaviors/-/iron-behaviors-3.0.0-pre.21.tgz#47ea698ccf02842d4ac7a24dcdef06db8a8d9892"
