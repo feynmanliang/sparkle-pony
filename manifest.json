@@ -1,0 +1,6 @@
+{
+  "name": "sparklepony",
+  "short_name": "sparklepony",
+  "start_url": "/",
+  "display": "standalone"
+}
