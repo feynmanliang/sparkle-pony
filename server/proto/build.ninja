@@ -1,0 +1,4 @@
+rule protoc
+    command = protoc -I=.  --go_out=plugins=grpc:. $in
+
+build service.pb.go: protoc service.proto

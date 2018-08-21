@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package sparklepony;
+
+service Greeter {
+    rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+message HelloRequest {
+    string name = 1;
+}
+
+message HelloReply {
+    string message = 1;
+}
+
+/* message Item { */
+/*     int32 id = 1; */
+/*     string title = 2; */
+/*     string description = 3; */
+/*     int32 price = 4; */
+/*     string store_name = 5; */
+/*     string store_avatar_url = 6; */
+/*     string store_description = 7; */
+/*     bool featured = 8; */
+/* } */
+
+/* message Catalog { */
+/*     repeated Item items = 1; */
+/* } */
