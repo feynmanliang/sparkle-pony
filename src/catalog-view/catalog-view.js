@@ -47,7 +47,7 @@ class CatalogView extends PolymerElement {
       <div class="app-grid">
         <dom-repeat items="[[items]]">
           <template>
-            <a href$="detail/[[item.id]]" class="item" aria-label$="More info about [[item.title]]">
+            <a href="#[[section]]/[[item.id]]" class="item" aria-label="More info about [[item.title]]">
               <item-card item="[[item]]"></item-card>
             </a>
           </template>
@@ -64,6 +64,9 @@ class CatalogView extends PolymerElement {
       featuredItem: {
         type: Object,
       },
+      section: {
+        type: String,
+      }
     };
   }
 }

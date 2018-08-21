@@ -75,7 +75,7 @@ class SparkleponyAppShell extends PolymerElement {
       <app-route route="{{subRoute}}"
                  pattern="/:id"
                  data="{{idData}}"
-                 tail="{{subSubRoute}}">
+                 active="{{onDetailPage}}">
       </app-route>
 
       <app-header-layout>
@@ -108,6 +108,7 @@ class SparkleponyAppShell extends PolymerElement {
 
         <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="catalog">
           <catalog-view name="catalog"
+                        section="[[sectionData.section]]"
                         route="[[subRoute]]"
                         items="[[items]]"
                         featured-item="[[featuredItems.0]]"></catalog-view>
