@@ -1,6 +1,6 @@
 # \<sparklepony\>
 
-![Screenshot of the main page of the app](./docs/images/screenshot.png)
+![Screenshot of the main page of the app](./client/docs/images/screenshot.png)
 
 [Live Preview](TODO)
 
