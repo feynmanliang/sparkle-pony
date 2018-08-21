@@ -1,4 +1,5 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import '@polymer/paper-fab/paper-fab.js';
 
 /**
  * @customElement
@@ -40,6 +41,28 @@ class DetailView extends PolymerElement {
         .buy-controls {
           @apply --layout-horizontal;
           @apply --layout-center-center;
+          margin: 20px 0px;
+        }
+
+        .buy-controls select {
+          padding: 10px 20px;
+          border: 1px solid rgba(0, 0, 0, .2);
+          background-color: white;
+          border-radius: 0;
+          position: relative;
+          min-width: 180px;
+          font-size: 20px;
+        }
+
+        paper-fab {
+          --paper-fab-background: var(--paper-cyan-a200);
+          --paper-fab-keyboard-focus-background: var(--paper-cyan-a700);
+          color: var(--paper-cyan-900);
+          margin-left: 20px;
+          --paper-fab-iron-icon: {
+            width: 20px;
+            height: 20px;
+          }
         }
 
         .spacer {
@@ -67,14 +90,14 @@ class DetailView extends PolymerElement {
           [[item.description]]
         </div>
         <div class="buy-controls">
-          <select>
+          <select aria-label="Change number of items">
             <option value="1">Quantity 1</option>
             <option value="2">Quantity 2</option>
             <option value="3">Quantity 3</option>
             <option value="4">Quantity 4</option>
             <option value="5">Quantity 5</option>
           </select>
-          <paper-icon-button icon="shopping-cart" aria-label="Add to cart"></paper-icon-button>
+          <paper-fab mini icon="add-shopping-cart" aria-label="Add to cart"></paper-fab>
         </div>
         <div class="spacer"></div>
         <div class="author">
