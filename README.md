@@ -1,18 +1,22 @@
 # \<sparklepony\>
 
+![Screenshot of the main page of the app](./docs/images/screenshot.png)
 
+[Live Preview](TODO)
 
-## Install the Polymer-CLI
+## Development
+
+### Install the Polymer-CLI
 
 First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
 
-## Viewing Your Application
+### Viewing Your Application
 
 ```
 $ polymer serve
 ```
 
-## Building Your Application
+### Building Your Application
 
 ```
 $ polymer build
@@ -24,7 +28,7 @@ This will create builds of your application in the `build/` directory, optimized
 $ polymer serve build/default
 ```
 
-## Running Tests
+### Running Tests
 
 ```
 $ polymer test
