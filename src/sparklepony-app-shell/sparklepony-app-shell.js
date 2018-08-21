@@ -23,17 +23,26 @@ class SparkleponyAppShell extends PolymerElement {
       <style>
         :host {
           display: block;
+          overflow: auto;
         }
 
         .navItem {
           width: 88px;
         }
 
+        [icon] {
+          color: #aaa;
+        }
+
         .leftItem [icon] {
           display: none;
         }
 
-        .main-title{
+        :host([page=detail]) .leftItem [icon=arrow-back] {
+          display: block;
+        }
+
+        .main-title {
           @apply --layout-flex;
           @apply --layout-horizontal;
           @apply --layout-center-justified;
@@ -83,6 +92,9 @@ class SparkleponyAppShell extends PolymerElement {
           <app-toolbar>
             <div class="navItem leftItem">
               <paper-icon-button icon="menu" drawer-toggle alt="Toggle navigation menu"></paper-icon-button>
+              <a href="#[[sectionData.section]]" tabindex="-1">
+                <paper-icon-button icon="arrow-back" alt="Back to the home"></paper-icon-button>
+              </a>
             </div>
             <div class="main-title">Sparkle Pony</div>
             <div class="navItem">
