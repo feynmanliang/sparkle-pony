@@ -152,6 +152,13 @@ class SparkleponyAppShell extends PolymerElement {
     }
   }
 
+  ready() {
+    super.ready();
+    if (!this.route.path) {
+      this.set('route.path', 'tops');
+    }
+  }
+
   _getDetailItem(items, id) {
     if (items) {
       return items[id];
