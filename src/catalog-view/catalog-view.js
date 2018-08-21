@@ -12,6 +12,14 @@ class CatalogView extends PolymerElement {
   static get template() {
     return html`
       <style include="app-grid-style">
+        :host {
+          --app-grid-columns: 2;
+          --app-grid-item-height: 30vmax;
+          --app-grid-gutter: 15px;
+        }
+        .app-grid {
+          background-color: #f3f3f3;
+        }
       </style>
 
       <featured-item item="[[featuredItem]]"></featured-item>

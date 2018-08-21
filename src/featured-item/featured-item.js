@@ -10,6 +10,7 @@ class FeaturedItem extends PolymerElement {
       <style>
         :host {
           display: block;
+          height: 420px;
         }
       </style>
       <h2>Featured [[item.title]]!</h2>

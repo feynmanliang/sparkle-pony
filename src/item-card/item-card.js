@@ -9,7 +9,9 @@ class ItemCard extends PolymerElement {
     return html`
       <style>
         :host {
-          display: block;
+          display: flex;
+          background-color: white;
+          height: 100%;
         }
       </style>
       <h2>[[item.title]]!</h2>
