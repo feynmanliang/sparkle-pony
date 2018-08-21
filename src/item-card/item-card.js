@@ -47,7 +47,7 @@ class ItemCard extends PolymerElement {
           margin-right: 10px;
         }
 
-        .link {
+        .title {
           font-family: 'Abril Fatface', cursive;
           color: var(--paper-teal-900);
           font-size: 2em;
@@ -62,7 +62,7 @@ class ItemCard extends PolymerElement {
         }
       </style>
       <div class="pic" style="background-image: url([[item.imageUrl]]);"></div>
-      <div class="link">[[item.title]]</div>
+      <div class="title">[[item.title]]</div>
       <span class="price">[[item.price]]</span>
 
       <div class="author">
