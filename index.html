@@ -18,8 +18,8 @@
   <body>
     <dom-bind>
       <template>
-        <iron-ajax auto url="data/items.json" last-response="{{items}}"></iron-ajax>
-        <iron-ajax auto url="data/featured.json" last-response="{{featuredItems}}"></iron-ajax>
+        <iron-ajax auto url="/data/items.json" last-response="{{items}}"></iron-ajax>
+        <iron-ajax auto url="/data/featured.json" last-response="{{featuredItems}}"></iron-ajax>
         <sparklepony-app-shell items="[[items]]" featured-items="[[featuredItems]]"></sparklepony-app-shell>
       </template>
     </dom-bind>

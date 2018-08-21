@@ -30,6 +30,10 @@ class SparkleponyAppShell extends PolymerElement {
                  data="{{routeData}}"
                  tail="{{subRoute}}">
       </app-route>
+      <app-route route="{{subRoute}}"
+                 pattern="/:id"
+                 data="{{idData}}">
+      </app-route>
 
       <app-header-layout>
         <app-header reveals>
@@ -62,7 +66,10 @@ class SparkleponyAppShell extends PolymerElement {
                         route="[[subRoute]]"
                         items="[[items]]"
                         featured-item="[[featuredItems.0]]"></catalog-view>
-          <detail-view name="detail" route="[[subRoute]]"></detail-view>
+          <detail-view name="detail"
+                       route="[[subRoute]]"
+                       item="[[_getDetailItem(items, idData.id)]]">
+          </detail-view>
         </iron-pages>
       </app-header-layout>
     `;
@@ -86,6 +93,12 @@ class SparkleponyAppShell extends PolymerElement {
       featuredItems: {
         type: Array,
       }
+    }
+  }
+
+  _getDetailItem(items, id) {
+    if (items) {
+      return items[id];
     }
   }
 }

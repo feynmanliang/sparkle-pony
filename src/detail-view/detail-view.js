@@ -7,24 +7,16 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 class DetailView extends PolymerElement {
   static get template() {
     return html`
-      [[name]]
+      Details for [[item.title]]
     `;
   }
 
   static get properties() {
     return {
-      name: {
-        type: String
+      item: {
+        item: Object,
       },
     };
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
-  }
-
-  constructor() {
-    super();
   }
 }
 
