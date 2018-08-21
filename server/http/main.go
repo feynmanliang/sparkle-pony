@@ -12,15 +12,16 @@ import (
 )
 
 var (
-	greeterEndpoint = flag.String("greeter_endpoint", "localhost:50051", "endpoint of HTTP API gateway")
+	endpoint = flag.String("endpoint", "localhost:50051", "endpoint of HTTP API gateway")
 )
 
 func run() error {
-	ctx, _ := context.WithCancel(context.Background())
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
 
 	mux := runtime.NewServeMux()
 	opts := []grpc.DialOption{grpc.WithInsecure()}
-	err := gw.RegisterGreeterHandlerFromEndpoint(ctx, mux, *greeterEndpoint, opts)
+	err := gw.RegisterStoreHandlerFromEndpoint(ctx, mux, *endpoint, opts)
 	if err != nil {
 		return err
 	}
