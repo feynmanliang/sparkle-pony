@@ -75,6 +75,11 @@ class SparkleponyAppShell extends PolymerElement {
         }
       </style>
 
+      <iron-ajax auto method="POST" url="http://localhost:8080/sparklepony/v1/items"
+                                    on-response="_handleItemsResponse"></iron-ajax>
+      <iron-ajax auto method="POST" url="http://localhost:8080/sparklepony/v1/items/featured"
+                                    on-response="_handleFeaturedItemsResponse"></iron-ajax>
+
       <app-location route="{{route}}" use-hash-as-path></app-location>
       <app-route route="{{route}}"
                  pattern=":section"
@@ -148,6 +153,7 @@ class SparkleponyAppShell extends PolymerElement {
       },
       items: {
         type: Array,
+        value: () => ([]),
       },
       page: {
         type: String,
@@ -161,6 +167,7 @@ class SparkleponyAppShell extends PolymerElement {
       onDetailPage: Boolean,
       featuredItems: {
         type: Array,
+        value: () => ([]),
       }
     }
   }
@@ -184,6 +191,14 @@ class SparkleponyAppShell extends PolymerElement {
 
   _computeSelectedTab(sections, section) {
     return sections.indexOf(section);
+  }
+
+  _handleItemsResponse(evt, data) {
+    this.set('items', evt.target.lastResponse.item);
+  }
+
+  _handleFeaturedItemsResponse(evt) {
+    this.set('featuredItems', evt.target.lastResponse.item);
   }
 }
 

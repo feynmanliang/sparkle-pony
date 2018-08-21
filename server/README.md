@@ -1,4 +1,4 @@
-# SparklePony Backend
+# Sparkle Pony back end
 
 Uses grpc-gateway to provide a type-safe HTTP/gRPC API.
 
@@ -13,6 +13,7 @@ go get -u github.com/golang/protobuf/protoc-gen-go
 
 go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
 go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
+go get -u github.com/rs/cors
 
 ninja -c proto
 ```

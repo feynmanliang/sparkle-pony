@@ -4,6 +4,7 @@ import (
 	"context"
 	"flag"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
+	"github.com/rs/cors"
 	"google.golang.org/grpc"
 	"log"
 	"net/http"
@@ -26,7 +27,8 @@ func run() error {
 		return err
 	}
 
-	return http.ListenAndServe(":8080", mux)
+	handler := cors.Default().Handler(mux)
+	return http.ListenAndServe(":8080", handler)
 }
 
 func main() {
