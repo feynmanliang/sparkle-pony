@@ -25,10 +25,21 @@ class SparkleponyAppShell extends PolymerElement {
           display: block;
         }
 
-        .spacer {
+        .navItem {
+          width: 88px;
+        }
+
+        .leftItem [icon] {
+          display: none;
+        }
+
+        .main-title{
           @apply --layout-flex;
           @apply --layout-horizontal;
           @apply --layout-center-justified;
+          text-transform: uppercase;
+          font-weight: 700;
+          color: var(--paper-teal-900);
         }
 
         paper-tabs {
@@ -48,6 +59,10 @@ class SparkleponyAppShell extends PolymerElement {
           text-transform: uppercase;
           font-weight: 500;
           color: #7c7c7c;
+        }
+
+        app-header:not([shadow]) {
+          border-bottom: 1px solid #ddd;
         }
       </style>
 
@@ -69,7 +84,7 @@ class SparkleponyAppShell extends PolymerElement {
             <div class="navItem leftItem">
               <paper-icon-button icon="menu" drawer-toggle alt="Toggle navigation menu"></paper-icon-button>
             </div>
-            <div class="spacer">Sparkle Pony</div>
+            <div class="main-title">Sparkle Pony</div>
             <div class="navItem">
               <paper-icon-button icon="shopping-cart" aria-label="Shopping cart"></paper-icon-button>
               <paper-icon-button icon="more-vert" aria-label="More options"></paper-icon-button>
