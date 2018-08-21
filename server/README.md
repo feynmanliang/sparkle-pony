@@ -16,3 +16,11 @@ go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
 
 cd proto && ninja
 ```
+
+## Running
+
+```
+go run grpc/main.go
+go run http/main.go
+echo '{"name": "world"}' | http POST :8080/v1/sparklepony/sayhello
+```

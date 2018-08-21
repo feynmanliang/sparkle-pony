@@ -1,12 +1,13 @@
 package main
 
 import (
-	pb ".."
 	"context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	"log"
 	"net"
+
+	pb "../proto"
 )
 
 const (

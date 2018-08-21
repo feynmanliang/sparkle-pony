@@ -1,4 +1,15 @@
-rule protoc
-    command = protoc -I=.  --go_out=plugins=grpc:. $in
+# TODO: fix
+GOPATH=/Users/feynman/go
 
-build service.pb.go: protoc service.proto
+rule grpc
+    command = protoc -I=. -I=$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis --go_out=plugins=grpc:. $in
+
+rule reverse-proxy
+    command = protoc -I=. -I=$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis --grpc-gateway_out=logtostderr=true:. $in
+
+rule swagger
+    command = protoc -I=. -I=$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis --swagger_out=logtostderr=true:. $in
+
+build service.pb.go: grpc service.proto
+build service.pb.gw.go: reverse-proxy service.proto
+build service.swagger.json: swagger service.proto

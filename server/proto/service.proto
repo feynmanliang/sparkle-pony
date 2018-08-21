@@ -1,9 +1,15 @@
 syntax = "proto3";
-
 package sparklepony;
 
+import "google/api/annotations.proto";
+
 service Greeter {
-    rpc SayHello (HelloRequest) returns (HelloReply) {}
+    rpc SayHello (HelloRequest) returns (HelloReply) {
+        option (google.api.http) = {
+            post: "/v1/sparklepony/sayhello"
+            body: "*"
+        };
+    }
 }
 
 message HelloRequest {
