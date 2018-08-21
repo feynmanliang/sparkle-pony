@@ -3,34 +3,51 @@ package sparklepony;
 
 import "google/api/annotations.proto";
 
-service Greeter {
-    rpc SayHello (HelloRequest) returns (HelloReply) {
+service Store {
+    rpc GetItems (Empty) returns (ItemsReply) {
         option (google.api.http) = {
-            post: "/v1/sparklepony/sayhello"
+            post: "/sparklepony/v1/items"
+            body: "*"
+        };
+    }
+
+    rpc GetFeatured (Empty) returns (FeaturedItemsReply) {
+        option (google.api.http) = {
+            post: "/sparklepony/v1/items/featured"
             body: "*"
         };
     }
 }
 
-message HelloRequest {
-    string name = 1;
+message Empty { }
+
+message Item {
+    int32 id = 1;
+    string title = 2;
+    string description = 3;
+    string image_url = 4;
+    string price = 5;
+    string store_name = 6;
+    string store_avatar_url = 7;
+    string store_description = 8;
+    bool featured = 9;
 }
 
-message HelloReply {
-    string message = 1;
+message FeaturedItem {
+    int32 id = 1;
+    string title = 2;
+    string quote = 3;
+    string image_url = 4;
+    string store_name = 5;
+    string store_avatar_url = 6;
+    string price = 7;
+    string category = 8;
 }
 
-/* message Item { */
-/*     int32 id = 1; */
-/*     string title = 2; */
-/*     string description = 3; */
-/*     int32 price = 4; */
-/*     string store_name = 5; */
-/*     string store_avatar_url = 6; */
-/*     string store_description = 7; */
-/*     bool featured = 8; */
-/* } */
+message ItemsReply {
+    repeated Item item = 1;
+}
 
-/* message Catalog { */
-/*     repeated Item items = 1; */
-/* } */
+message FeaturedItemsReply {
+    repeated FeaturedItem item = 1;
+}
