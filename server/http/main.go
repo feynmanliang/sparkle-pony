@@ -19,7 +19,7 @@ func run() error {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
-	mux := runtime.NewServeMux()
+	mux := runtime.NewServeMux(runtime.WithMarshalerOption("*", &runtime.JSONPb{OrigName: false}))
 	opts := []grpc.DialOption{grpc.WithInsecure()}
 	err := gw.RegisterStoreHandlerFromEndpoint(ctx, mux, *endpoint, opts)
 	if err != nil {

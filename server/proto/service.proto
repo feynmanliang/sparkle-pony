@@ -7,14 +7,12 @@ service Store {
     rpc GetItems (Empty) returns (ItemsReply) {
         option (google.api.http) = {
             post: "/sparklepony/v1/items"
-            body: "*"
         };
     }
 
     rpc GetFeatured (Empty) returns (FeaturedItemsReply) {
         option (google.api.http) = {
             post: "/sparklepony/v1/items/featured"
-            body: "*"
         };
     }
 }
